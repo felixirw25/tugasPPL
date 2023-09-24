@@ -1,31 +1,31 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Hitung Akar Kuadrat</title>
-    <-- Tambahkan pustaka Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Tambahkan pustaka Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container mt-5">
         <h1 class="text-center">API Service Menghitung Akar Kuadrat</h1>
         <div class="row justify-content-center mt-4">
             <div class="col-md-6">
-                <form> -->
-                    <!-- <div class="form-group">
+                <!-- <form> -->
+                    <div class="form-group">
                         <label for="numbers">Masukkan Angka:</label>
                         <input type="text" class="form-control" id="numbers" required>
                     </div>
-                    <button type="button" class="btn btn-primary" onclick="calculateSquareRoot()">Hitung Akar Kuadrat</button> -->
+                    <button type="button" class="btn btn-primary" onclick="calculateSquareRoot()">Hitung Akar Kuadrat</button>
                 <!-- </form> -->
-                <!-- <div class="mt-3">
+                <div class="mt-3">
                     <p id="result"></p>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <!-- Tambahkan pustaka Bootstrap JavaScript dan jQuery (diperlukan untuk beberapa komponen Bootstrap) -->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
@@ -55,7 +55,7 @@
             }
 
             try {
-                const url = 'https://tugas-ppl-h9poi6fb6-felixirw25.vercel.app/akar_kuadrat.php';
+                const url = 'https://tugas-ppl-7n923fwli-felixirw25.vercel.app/api/calculateSquareRoot';
                 const parameters = {
                     numbers: numbers
                 };
@@ -69,13 +69,18 @@
                 .then(response => {
                     // Handle successful response
                     console.log(response.data);
+                    // if (data.square_root !== undefined) {
+                    //     document.getElementById('result').innerHTML = `Akar kuadrat dari ${numbers} adalah ${response.square_root}`;
+                    // } else {
+                    //     document.getElementById('result').innerHTML = `Error: ${response.error}`;
+                    // }
                 })
                 .catch(error => {
                     // Handle error
                     console.error(error);
-                }); -->
+                });
 
-                <!-- // fetch(fullURL, {
+                // fetch(fullURL, {
                 //     method: 'GET',
                 //     headers: {
                 //         'Content-Type': 'application/json'
@@ -90,52 +95,10 @@
                 //     }
                 // })
                 // .catch(error => console.error('Error:', error));
-    //         } catch(err) {
-    //             alert(err); // Failed to fetch
-    //         }  
-    //     } -->
-    <!-- // </script>
-</body>
-</html> -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frontend Template</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+            } catch(err) {
+                alert(err); // Failed to fetch
+            }  
         }
-    </style>
-</head>
-<body>
-    <h1>API Data</h1>
-    <div id="api-data"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        // Function to fetch data from the API and display it on the page
-        async function fetchData() {
-            axios.get('https://tugas-ppl-bklveh7kq-felixirw25.vercel.app/akar_kuadrat.php')
-                .then(function (response) {
-                    // Handle the successful response here
-                    const apiData = response.data;
-
-                    // Assuming the API returns JSON data, you can display it on the page
-                    const apiDataDiv = document.getElementById('api-data');
-                    apiDataDiv.innerHTML = JSON.stringify(apiData, null, 2);
-                })
-                .catch(function (error) {
-                    // Handle any errors that occur during the request
-                    console.error('Error fetching data:', error);
-                });
-        }
-
-        // Call the fetchData function when the page loads
-        window.onload = fetchData;
     </script>
 </body>
 </html>
