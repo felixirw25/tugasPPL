@@ -118,7 +118,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         // Function to fetch data from the API and display it on the page
-        function fetchData() {
+        async function fetchData() {
             axios.get('https://tugas-ppl-bklveh7kq-felixirw25.vercel.app/akar_kuadrat.php')
                 .then(function (response) {
                     // Handle the successful response here
