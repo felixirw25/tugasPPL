@@ -30,6 +30,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
+        import { useState } from "react";
+        import axios from "axios";
+
         function isNumeric(value) {
             // Fungsi ini akan memeriksa apakah nilai adalah angka
             return /^\d+$/.test(value);
@@ -62,21 +65,31 @@
                 const fullURL = `${url}?numbers=${numbers}`;
                 alert(fullURL);
 
-                fetch(fullURL, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+                axios.get(`${fullURL}`)
+                .then(response => {
+                    // Handle successful response
+                    console.log(response.data);
                 })
-                .then(response => response.json()) // Parse the JSON data from the response
-                .then(data => {
-                    if (data.square_root !== undefined) {
-                        document.getElementById('result').innerHTML = `Akar kuadrat dari ${numbers} adalah ${data.square_root}`;
-                    } else {
-                        document.getElementById('result').innerHTML = `Error: ${data.error}`;
-                    }
-                })
-                .catch(error => console.error('Error:', error));
+                .catch(error => {
+                    // Handle error
+                    console.error(error);
+                });
+
+                // fetch(fullURL, {
+                //     method: 'GET',
+                //     headers: {
+                //         'Content-Type': 'application/json'
+                //     },
+                // })
+                // .then(response => response.json()) // Parse the JSON data from the response
+                // .then(data => {
+                //     if (data.square_root !== undefined) {
+                //         document.getElementById('result').innerHTML = `Akar kuadrat dari ${numbers} adalah ${data.square_root}`;
+                //     } else {
+                //         document.getElementById('result').innerHTML = `Error: ${data.error}`;
+                //     }
+                // })
+                // .catch(error => console.error('Error:', error));
             } catch(err) {
                 alert(err); // Failed to fetch
             }  
