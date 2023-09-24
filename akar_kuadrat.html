@@ -52,7 +52,7 @@
             }
 
             try {
-                const url = 'https://tugas-ppl-7n923fwli-felixirw25.vercel.app/api/calculateSquareRoot';
+                const url = 'https://tugas-ppl-mliiy0w86-felixirw25.vercel.app/api/calculateSquareRoot';
                 const parameters = {
                     numbers: numbers
                 };
@@ -61,21 +61,6 @@
                 // Construct the URL with query parameter
                 const fullURL = `${url}?numbers=${numbers}`;
                 alert(fullURL);
-
-                // axios.get(`${fullURL}`)
-                // .then(response => {
-                //     // Handle successful response
-                //     console.log(response.data);
-                //     // if (data.square_root !== undefined) {
-                //     //     document.getElementById('result').innerHTML = `Akar kuadrat dari ${numbers} adalah ${response.square_root}`;
-                //     // } else {
-                //     //     document.getElementById('result').innerHTML = `Error: ${response.error}`;
-                //     // }
-                // })
-                // .catch(error => {
-                //     // Handle error
-                //     console.error(error);
-                // });
 
                 fetch(fullURL, {
                     method: 'GET',
